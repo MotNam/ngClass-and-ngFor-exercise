@@ -1,0 +1,23 @@
+
+<label for="name">name</label>
+<input  type="text" [(ngModel)]="name">
+<input  type="number" [(ngModel)]="age">
+<input  type="text" [(ngModel)]="email">
+<select name="gender" [(ngModel)]="gender">
+    <option value ="female">female</option>
+    <option value ="male">male</option>
+</select>
+<button *ngIf="age >= 0" (click)= "addUser()" >Add user</button>
+<button *ngIfElse="age < 0; true" >Not clickable</button>
+
+<ul>
+    <div [ngClass]="getClass(i)" *ngFor= "let user of userList; let i = index">
+        <div class="userInfo">
+            <li>name: {{user.name}}</li>
+            <li>age: {{user.age}}</li>
+            <li>email: {{user.email}}</li>
+            <li>gender: {{user.gender}}</li>
+        </div>      
+    </div>
+</ul>
+
